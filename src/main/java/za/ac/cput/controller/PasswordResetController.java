@@ -6,6 +6,7 @@ import za.ac.cput.service.PasswordResetService;
 
 @RestController
 @RequestMapping("/api/password")
+@CrossOrigin(origins = "*")
 public class PasswordResetController {
 
     private final PasswordResetService passwordResetService;

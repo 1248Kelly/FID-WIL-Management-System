@@ -4,6 +4,7 @@
  * Author : Thapelo Ngwenya - 222260971
  * Date : 06 October 2025
  */
+// java
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class InternshipPostController {
     // 🔹 GET all Posts by Business
     // -------------------------------
     @GetMapping("/business/{businessId}")
-    public ResponseEntity<List<InternshipPost>> getPostsByBusiness(@PathVariable int businessId) {
+    public ResponseEntity<List<InternshipPost>> getPostsByBusiness(@PathVariable Long businessId) {
         return ResponseEntity.ok(service.getPostsByBusiness(businessId));
     }
 
@@ -142,9 +143,8 @@ public class InternshipPostController {
     // 🔹 DELETE by Business ID
     // -------------------------------
     @DeleteMapping("/delete/business/{businessId}")
-    public ResponseEntity<?> deletePostsByBusiness(@PathVariable int businessId) {
+    public ResponseEntity<?> deletePostsByBusiness(@PathVariable Long businessId) {
         service.deleteByBusiness(businessId);
         return ResponseEntity.ok("All posts for Business ID " + businessId + " deleted successfully.");
     }
 }
-
