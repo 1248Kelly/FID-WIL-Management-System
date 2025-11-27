@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/businesses")
+@CrossOrigin(origins = "*")
 public class BusinessController {
 
     private final IBusinessService businessService;

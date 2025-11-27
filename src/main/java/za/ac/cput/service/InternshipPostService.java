@@ -4,6 +4,7 @@
  * Author : Thapelo Ngwenya - 222260971
  * Date : 06 October 2025
  */
+
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,9 +71,11 @@ public class InternshipPostService {
 
     /**
      * Get all posts belonging to a specific business.
+     * Uses Long to match Business.id type and repository method name.
      */
-    public List<InternshipPost> getPostsByBusiness(int businessId) {
-        return repository.findByBusiness_BusinessId(businessId);
+    public List<InternshipPost> getPostsByBusiness(Long businessId) {
+        if (businessId == null) return List.of();
+        return repository.findByBusiness_Id(businessId);
     }
 
     /**
@@ -125,9 +128,10 @@ public class InternshipPostService {
 
     /**
      * Delete all posts belonging to a business (e.g. when a company account is removed).
+     * Uses Long to match Business.id type and repository method name.
      */
-    public void deleteByBusiness(int businessId) {
-        repository.deleteByBusiness_BusinessId(businessId);
+    public void deleteByBusiness(Long businessId) {
+        if (businessId == null) return;
+        repository.deleteByBusiness_Id(businessId);
     }
 }
-

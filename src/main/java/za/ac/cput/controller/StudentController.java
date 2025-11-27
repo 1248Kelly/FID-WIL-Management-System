@@ -10,6 +10,7 @@ import za.ac.cput.service.IUserService;
 
 @RestController
 @RequestMapping("/api/students")
+@CrossOrigin(origins = "*")
 public class StudentController {
 
     private final IStudentService studentService;
